@@ -1,0 +1,55 @@
+
+  <div ng-controller = "MovieListCtrl">
+  <div class = "full">
+  <div class = "heading">   
+  <h1>Movies,TV Shows and More!</h1>
+
+  Search: <input type="text" ng-model="query" 
+  ng-model-options="{debounce: 800}"
+  placeholder = "Enter query"
+  >
+
+  </div>
+  <br>
+  <br>
+  
+  <div ng-if="movies.Response=='True'">
+  <div class = "info">
+   
+  {{movies.Title}}<br><br>
+  Release : {{movies.Year}} <br>
+  Genre : {{movies.Genre}}<br>
+  Cast : {{movies.Actors}}<br>
+  Director : {{movies.Director}}<br>
+  IMDB Rating : {{movies.imdbRating}}<br>
+  Metascore :{{movies.Metascore}}<br>
+
+  Plot : {{movies.Plot}}<br>
+  </div>
+  <div>
+  <br>
+  <span id = "poster">
+  <img src = {{movies.Poster}}><br>
+   </span>    
+   </div>
+
+    <a href = "#/related-movies/{{movies.Title}}"> Related Movies </a>
+    <div ng-if="movies.Response=='False'">
+    No Content Available
+  </div>
+
+   </div> 
+
+
+
+  
+  </div>
+
+</div>
+
+
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  

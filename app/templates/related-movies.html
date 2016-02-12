@@ -1,0 +1,38 @@
+  <div ng-controller="RelatedMoviesListCtrl">
+
+  <h1>Related Movies</h1>
+
+  Search: <input type="text" ng-model="requery" 
+  ng-model-options="{debounce: 800}"
+  placeholder = "Enter full movie name"
+  >
+  <br>
+  <br>  
+
+
+
+  Sort by: 
+  <select ng-model="orderProp">
+    <option value = "Title">Alphabetical</option>
+    <option value = "releaseYear">Chronological</option>
+  </select>
+
+
+  <br>
+  <br>
+
+  <ul>
+    <li ng-repeat= "movier in relatedMovies | filter:requery | orderBy : orderProp">  
+  
+      {{movier.Year}}
+      <br>
+      {{movier.Title}}
+         </li>
+  </ul>
+
+</div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  
